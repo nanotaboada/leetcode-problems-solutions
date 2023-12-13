@@ -7,6 +7,8 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
+    https://leetcode.com/problems/find-the-difference-of-two-arrays/solutions/4400507/clean-easy-solution-in-c-with-linq-beats-97-26-in-runtime/
+
     - Runtime 142 ms (Beats 97.26% of users with C#)
     - Memory 59.77 MB (Beats 19.45% of users with C#)
 */

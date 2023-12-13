@@ -7,6 +7,8 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/4384292/clean-solution-in-c-beats-73-60-in-runtime/
+
     - Runtime 207 ms (Beats 76.87% of users with C#)
     - Memory 49.80 MB (Beats 81.90% of users with C#)
 */
