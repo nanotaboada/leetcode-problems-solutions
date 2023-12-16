@@ -7,6 +7,9 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
+    The Tribonacci series is a generalization of the Fibonacci sequence where
+    each term is the sum of the three preceding terms.
+
     https://leetcode.com/problems/n-th-tribonacci-number/solutions/4391198/simple-clean-solution-in-c-based-on-provided-hints-beats-95-91-in-runtime/
 
     - Runtime 14 ms (Beats 95.91% of users with C#)
@@ -30,6 +33,11 @@ public class Solution
         // Now write a loop where you set F[n+3] = F[n] + F[n+1] + F[n+2]
         for (int i = 3; i <= n; i++)
         {
+            // F[n-3]   F[n-2]   F[n-1]   F[n]   F[n+1]   F[n+2]   F[n+3]
+            //                            <------------------------------
+            //                            F[n] + F[n+1] + F[n+2] = F[n+3]
+            // F[n-3] + F[n-2] + F[n-1] = F[n]
+            // <------------------------------
             F[i] = F[i-1] + F[i-2] + F[i-3];
         }
 
