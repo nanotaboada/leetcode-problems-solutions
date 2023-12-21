@@ -16,12 +16,12 @@ public class Solution
 {
     public int MaxProfit(int[] prices)
     {
-        int profit = 0;
-        int buyingPrice = prices[0];
+        var profit = 0;
+        var buyingPrice = prices[0];
 
-        for (int day = 1; day < prices.Length; day++)
+        for (var day = 1; day < prices.Length; day++)
         {
-            int dailyPrice = prices[day];
+            var dailyPrice = prices[day];
 
             // https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/18237
             // if (dailyPrice > 0)

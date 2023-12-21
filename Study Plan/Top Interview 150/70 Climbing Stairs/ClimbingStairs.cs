@@ -71,7 +71,7 @@ public class Solution
         // ways[1] (and ways[2]) data available to calculate ways[3] below
 
         // Loop from Step 3 to Step n applying the formula
-        for (int i = 3; i <= n; i++)
+        for (var i = 3; i <= n; i++)
         {
             ways[i] = ways[i-1] + ways[i-2];
         }

@@ -14,10 +14,10 @@ public class Solution
 {
     public bool IsSubsequence(string s, string t)
     {
-        string subsequence = s;
-        int subsequencePointer = 0;
-        string sequence = t;
-        int sequencePointer = 0;
+        var subsequence = s;
+        var subsequencePointer = 0;
+        var sequence = t;
+        var sequencePointer = 0;
 
         while (subsequencePointer < subsequence.Length && sequencePointer < sequence.Length)
         {

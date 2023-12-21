@@ -25,7 +25,7 @@ public class Solution
         // set of characters that have already been mapped
         var charSet = new HashSet<char>();
 
-        for (int i = 0; i < s.Length; i++)
+        for (var i = 0; i < s.Length; i++)
         {
             // loop through the characters of both strings
             char source = s[i];
