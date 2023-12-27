@@ -7,7 +7,10 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/greatest-common-divisor-of-strings/solutions/4431471/straightforward-solution-in-java-using-euclid-s-algorithm-beats-84-in-runtime/
+    https://leetcode.com/problems/greatest-common-divisor-of-strings/solutions/4431471/java-time-complexity-o-log-min-m-n-space-complexity-o-1-beats-84-in-runtime-euclid-s/
+
+    - Time Complexity O(log(min(m, n)))
+    - Space Complexity O(1)
 
     - Runtime 1 ms (Beats 84.16% of users with Java)
     - Memory 42.33 MB (Beats 14.83% of users with Java)

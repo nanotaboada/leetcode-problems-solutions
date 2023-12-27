@@ -36,7 +36,10 @@
     -6 |                        X
     -7 |
 
-    https://leetcode.com/problems/find-the-highest-altitude/solutions/4395531/clean-solution-in-c-with-explanation-in-code-comments/
+    https://leetcode.com/problems/find-the-highest-altitude/solutions/4395531/c-time-complexity-o-n-space-complexity-o-1-graphical-analysis-in-comments/
+
+    - Time Complexity O(n)
+    - Space Complexity O(1)
 
     - Runtime 80 ms (Beats 42.40% of users with C#)
     - Memory 38.49 MB (Beats 21.87% of users with C#)

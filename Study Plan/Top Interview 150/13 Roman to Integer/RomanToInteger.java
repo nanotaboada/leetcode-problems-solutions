@@ -12,7 +12,10 @@
     3. If the value is smaller than the next, they have to be subtracted
     4. If the value is bigger than the next, they have to be be added
 
-    https://leetcode.com/problems/roman-to-integer/solutions/4432637/easy-to-follow-solution-in-java-using-hashmap-beats-66-in-runtime/
+    https://leetcode.com/problems/roman-to-integer/solutions/4432637/java-time-complexity-o-n-space-complexity-o-1-beats-66-in-runtime-hashmap-step-by-step/
+
+    - Time Complexity O(n)
+    - Space Complexity O(1)
 
     - Runtime 4 ms (Beats 66.67% of users with Java)
     - Memory 45.06 MB (Beats 7.39% of users with Java)

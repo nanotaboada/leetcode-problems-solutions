@@ -10,7 +10,10 @@
     The Tribonacci series is a generalization of the Fibonacci sequence where
     each term is the sum of the three preceding terms.
 
-    https://leetcode.com/problems/n-th-tribonacci-number/solutions/4431186/simple-easy-solution-in-java-based-on-provided-hints-beats-100-in-runtime/
+    https://leetcode.com/problems/n-th-tribonacci-number/solutions/4431186/java-time-complexity-o-n-space-complexity-o-1-beats-100-in-runtime/
+
+    - Time Complexity O(n)
+    - Space Complexity O(1)
 
     - Runtime 104 ms (Beats 100.00% of users with Java)
     - Memory 40.42 MB (Beats 6.29% of users with Java)

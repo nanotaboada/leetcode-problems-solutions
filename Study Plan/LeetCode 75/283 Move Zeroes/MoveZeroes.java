@@ -34,7 +34,10 @@
     |    4     | [1, 3, 12, 3, 12] | [1, 3, 12, 0, 0]  |
     ----------------------------------------------------
 
-    https://leetcode.com/problems/move-zeroes/solutions/4431061/in-place-solution-in-java-with-graphical-explanation-beats-67-in-runtime/
+    https://leetcode.com/problems/move-zeroes/solutions/4431061/java-in-place-time-complexity-o-n-space-complexity-o-1-beats-67-in-runtime/
+
+    - Time Complexity O(n)
+    - Space Complexity O(1)
 
     - Runtime 2 ms (Beats 67.76% of users with Java)
     - Memory 46.78 MB (Beats 5.44% of users with Java)

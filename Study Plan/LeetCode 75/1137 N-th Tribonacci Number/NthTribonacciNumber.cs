@@ -10,7 +10,10 @@
     The Tribonacci series is a generalization of the Fibonacci sequence where
     each term is the sum of the three preceding terms.
 
-    https://leetcode.com/problems/n-th-tribonacci-number/solutions/4391198/simple-clean-solution-in-c-based-on-provided-hints-beats-95-91-in-runtime/
+    https://leetcode.com/problems/n-th-tribonacci-number/solutions/4391198/c-time-complexity-o-n-space-complexity-o-1-beats-95-in-runtime/
+
+    - Time Complexity O(n)
+    - Space Complexity O(1)
 
     - Runtime 14 ms (Beats 95.91% of users with C#)
     - Memory 26.41 MB (Beats 82.97% of users with C#)

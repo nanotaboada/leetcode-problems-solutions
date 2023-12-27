@@ -7,10 +7,13 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/reverse-vowels-of-a-string/solutions/4384067/clean-solution-in-c-beats-81-94-in-runtime-and-52-28-in-memory/
+    https://leetcode.com/problems/reverse-vowels-of-a-string/solutions/4384067/c-linq-time-complexity-o-n-m-space-complexity-o-n-beats-81-in-runtime/
 
-    - Runtime 80 ms (Beats 15.04% of users with C#)
-    - Memory 37.96 MB (Beats 42.76% of users with C#)
+    - Time Complexity O(n + m)
+    - Space Complexity O(n)
+
+    - Runtime 74 ms (Beats 81.94% of users with C#)
+    - Memory 37.96 MB (Beats 52.28% of users with C#)
 */
 
 public class Solution

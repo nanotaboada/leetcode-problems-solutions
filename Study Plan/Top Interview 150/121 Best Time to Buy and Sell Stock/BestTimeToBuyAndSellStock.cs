@@ -7,10 +7,13 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/4384292/clean-solution-in-c-beats-73-60-in-runtime/
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/4384292/c-time-complexity-o-n-space-complexity-o-1-beats-72-in-runtime/
 
-    - Runtime 207 ms (Beats 76.87% of users with C#)
-    - Memory 49.80 MB (Beats 81.90% of users with C#)
+    - Time Complexity O(n)
+    - Space Complexity O(1)
+
+    - Runtime 207 ms (Beats 72.14% of users with C#)
+    - Memory 49.80 MB (Beats 78.80% of users with C#)
 */
 public class Solution
 {

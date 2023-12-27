@@ -7,7 +7,9 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/valid-parentheses/solutions/4433109/straightforward-solution-in-java-based-on-provided-hints-beats-82-in-runtime/
+    https://leetcode.com/problems/valid-parentheses/solutions/4433109/java-time-and-space-complexity-o-n-beats-82-in-runtime-based-on-provided-hints/
+
+    - Time and Space Complexity O(n)
 
     - Runtime 2 ms (Beats 82.70% of users with Java)
     - Memory 41.74 MB (Beats 6.54% of users with Java)

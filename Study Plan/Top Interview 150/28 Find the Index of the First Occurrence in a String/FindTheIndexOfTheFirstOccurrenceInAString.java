@@ -7,7 +7,10 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/4432832/clean-simple-solution-in-java-beats-100-in-runtime/
+    https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/4432832/java-time-complexity-o-m-n-space-complexity-o-1-runtime-0-ms-beats-100/
+
+    - Time Complexity O(m * n)
+    - Space Complexity O(1)
 
     - Runtime 0 ms (Beats 100.00% of users with Java)
     - Memory 41.36 MB (Beats 5.11% of users with Java)

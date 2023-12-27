@@ -31,10 +31,13 @@
     |   | [ 1, 7, 3, 6, 5, 6 ] |    11    |         True        |         |
     -----------------------------------------------------------------------
 
-    https://leetcode.com/problems/find-pivot-index/solutions/4414019/clean-solution-in-c-beats-74-in-runtime-with-step-by-step-example-in-code-comments/
+    https://leetcode.com/problems/find-pivot-index/solutions/4414019/c-time-complexity-o-n-space-complexity-o-1-beats-74-in-runtime-step-by-step-example/
 
-    - Runtime 94 ms (Beats 73.70% of users with C#)
-    - Memory 46.00 MB (Beats 76.53% of users with C#)
+    - Time Complexity O(n)
+    - Space Complexity O(1)
+
+    - Runtime 94 ms (Beats 74.36% of users with C#)
+    - Memory 46.00 MB (Beats 76.06% of users with C#)
 */
 
 public class Solution

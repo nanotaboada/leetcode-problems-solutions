@@ -36,7 +36,10 @@
     -6 |                        X
     -7 |
 
-    https://leetcode.com/problems/find-the-highest-altitude/solutions/4431238/clean-solution-in-java-with-explanation-in-code-comments-beats-100-in-runtime/
+    https://leetcode.com/problems/find-the-highest-altitude/solutions/4431238/java-time-complexity-o-n-space-complexity-o-1-runtime-0-ms-beats-100-graphical-analysis/
+
+    - Time Complexity O(n)
+    - Space Complexity O(1)
 
     - Runtime 0 ms (Beats 100.00% of users with Java)
     - Memory 41.60 MB (Beats 6.57% of users with Java)

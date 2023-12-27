@@ -7,8 +7,12 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
+    https://leetcode.com/problems/plus-one/solutions/4453463/java-time-and-space-complexity-o-n-runtime-0-ms-beats-100-analysis-in-comments/
+
+    - Time and Space Complexity O(n)
+
     - Runtime 0 ms (Beats 100.00% of users with Java)
-    - Memory 42.30 MB (Beats 6.90% of users with Java)
+    - Memory 42.30 MB (Beats 5.77% of users with Java)
 */
 
 class Solution {

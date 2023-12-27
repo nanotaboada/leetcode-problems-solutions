@@ -7,8 +7,13 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 2 ms (Beats 75.28% of users with Java)
-    - Memory 61.74 MB (Beats 8.18% of users with Java)
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/4447173/java-time-complexity-o-n-space-complexity-o-1-beats-75-in-runtime/
+    
+    - Time Complexity O(n)
+    - Space Complexity O(1)
+
+    - Runtime 2 ms (Beats 75.39% of users with Java)
+    - Memory 61.74 MB (Beats 9.44% of users with Java)
     
 */
 

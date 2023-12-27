@@ -7,10 +7,12 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/valid-parentheses/solutions/4422923/straightforward-solution-in-c-based-on-provided-hints-beats-60-in-runtime/
+    https://leetcode.com/problems/valid-parentheses/solutions/4422923/c-time-and-space-complexity-o-n-beats-60-in-runtime-based-on-provided-hints/
+
+    - Time and Space Complexity O(n)
     
-    - Runtime 67 ms (Beats 60.37% of users with C#)
-    - Memory 38.22 MB (Beats 17.68% of users with C#)
+    - Runtime 67 ms (Beats 60.01% of users with C#)
+    - Memory 38.22 MB (Beats 17.47% of users with C#)
 */
 
 public class Solution

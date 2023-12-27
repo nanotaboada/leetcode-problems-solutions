@@ -8,6 +8,10 @@
     Solution
     --------------------------------------------------------------------------------
     https://leetcode.com/problems/remove-element/solutions/4453892/java-in-place-time-complexity-o-n-space-complexity-o-1-runtime-0-ms-beats-100/
+
+    - Time Complexity O(n)
+    - Space Complexity O(1)
+
     - Runtime 0 ms (Beats 100.00% of users with Java)
     - Memory 41.58 MB (Beats 11.45% of users with Java)
 */

@@ -7,7 +7,9 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/find-the-difference-of-two-arrays/solutions/4400507/clean-easy-solution-in-c-with-linq-beats-97-26-in-runtime/
+    https://leetcode.com/problems/find-the-difference-of-two-arrays/solutions/4400507/c-linq-time-and-space-complexity-o-max-n-m-beats-97-in-runtime/
+
+    - Time and Space Complexity O(max(n, m))
 
     - Runtime 142 ms (Beats 97.26% of users with C#)
     - Memory 59.77 MB (Beats 19.45% of users with C#)
