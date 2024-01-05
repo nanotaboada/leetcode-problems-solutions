@@ -40,12 +40,16 @@
       +   1 1 1
         -------     
       1 0 0 1 0     write 1 (nothing to add)
+
+      - Runtime 64 ms (Beats 86.07% of users with C#)
+      - Memory 40.20 MB (Beats 43.18% of users with C#)
 */
+
 public class Solution
 {
     public string AddBinary(string a, string b) 
     { 
-        var result = new StringBuilder();
+        var binary = new StringBuilder();
         var i = a.Length - 1;
         var j = b.Length - 1;
         var carry = 0;
@@ -54,16 +58,18 @@ public class Solution
         {
             var sum = carry;
             
-            if (i >= 0) sum += (int)char.GetNumericValue(a[i]);
-            if (j >= 0) sum += (int)char.GetNumericValue(b[j]);
+            if (i >= 0) sum += (int)Char.GetNumericValue(a[i]);
+            if (j >= 0) sum += (int)Char.GetNumericValue(b[j]);
 
-            result.Insert(0, sum % 2);
+            // In general, the Append method is expected to be faster
+            // than Insert 
+            binary.Append(sum % 2);
             
             carry = sum / 2;
             i--;
             j--;
         }
 
-        return result.ToString();
+        return new string(binary.ToString().Reverse().ToArray());
     }
 }
