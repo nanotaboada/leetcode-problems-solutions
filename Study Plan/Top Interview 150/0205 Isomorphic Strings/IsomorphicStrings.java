@@ -7,20 +7,19 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 11 ms (Beats 52.22% of users with Java)
-    - Memory 42.59 MB (Beats 11.58% of users with Java)
+    - Runtime 10 ms (Beats 69.40% of users with Java)
+    - Memory 43.11 MB (Beats 10.47% of users with Java)
 */
 
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        if (s.length() != t.length()) {
-            return false;
-        }
+        // Constraints: t.length == s.length
+        int length = s.length();
         // map of source (Key) and target (Value) characters
-        var charMap = new HashMap<Character, Character>();
+        var charMap = new HashMap<Character, Character>(length);
         // set of characters that have already been mapped
-        var charSet = new HashSet<Character>();
-        for (var i = 0; i < s.length(); i++) {
+        var charSet = new HashSet<Character>(length);
+        for (var i = 0; i < length; i++) {
             // loop through the characters of both strings
             char source = s.charAt(i);
             char target = t.charAt(i);

@@ -7,53 +7,54 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 68 ms (Beats 70.06% of users with C#)
-    - Memory 39.63 MB (Beats 51.66% of users with C#)
+    https://leetcode.com/problems/isomorphic-strings/solutions/4484437/c-time-and-space-complexity-o-n-detailed-step-by-step-explanation-dictionary-and-hashset/
+
+    - Runtime 63 ms Beats (84.64% of users with C#)
+    - Memory 42.33 MB (Beats 8.05% of users with C#)
 */
+
 public class Solution
 {
     public bool IsIsomorphic(string s, string t)
     {
-        if (s.Length != t.Length)
-        {
-            return false;
-        }
+        // Constraints: t.length == s.length
+        var length = s.Length;
 
-        // map of source (Key) and target (Value) characters
-        var charMap = new Dictionary<char, char>();
+        // Map of source (Key) and target (Value) characters
+        var charMap = new Dictionary<char, char>(length);
         
-        // set of characters that have already been mapped
-        var charSet = new HashSet<char>();
+        // Set of characters that have already been mapped
+        var charSet = new HashSet<char>(length);
 
-        for (var i = 0; i < s.Length; i++)
+        for (int i = 0; i < length; i++)
         {
-            // loop through the characters of both strings
+            // Loop through the characters of both strings
             char source = s[i];
             char target = t[i];
 
-            // check if the character from the source has already been mapped
+            // Check if the character from the source has already been mapped
             if (charMap.ContainsKey(source))
             {
-                // verify that the mapping matches
+                // Verify that the mapping matches
                 if (charMap[source] != target)
                 {
-                    // inconsistency
+                    // Inconsistency
                     return false;
                 }
             }
-            // the character hasn't been mapped yet
+            // The character hasn't been mapped yet
             else
             {
-                // check if the character from the target has already been mapped
+                // Check if the character from the target has already been mapped
                 if (charSet.Contains(target))
                 {
-                    // already mapped to another character
+                    // Already mapped to another character
                     return false;
                 }
 
-                // add the source/target character mapping
+                // Add the source/target character mapping
                 charMap[source] = target;
-                // add the target character to the set of alreaady mapped
+                // Add the target character to the set of alreaady mapped
                 charSet.Add(target);
             }
         }
