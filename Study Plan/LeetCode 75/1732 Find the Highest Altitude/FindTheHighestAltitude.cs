@@ -38,27 +38,30 @@
 
     https://leetcode.com/problems/find-the-highest-altitude/solutions/4395531/c-time-complexity-o-n-space-complexity-o-1-graphical-analysis-in-comments/
 
-    - Time Complexity O(n)
-    - Space Complexity O(1)
-
-    - Runtime 80 ms (Beats 42.40% of users with C#)
-    - Memory 38.49 MB (Beats 21.87% of users with C#)
+    - Runtime 63 ms (Beats 92.85% of users with C#)
+    - Memory 39.86 MB (Beats 17.61% of users with C#)
 */
 
 public class Solution
 {
     public int LargestAltitude(int[] gain)
     {
-        var altitude = 0;
+        var altitudes = new int[gain.Length + 1];
         var highestAltitude = 0;
 
-        foreach (var netgain in gain)
+        for (int index = 1; index <= gain.Length; index++)
         {
-            altitude += netgain;
-
-            if (altitude > highestAltitude)
+            // Hint 1
+            // Let's note that the altitude of an element is the sum of gains
+            // of all the elements behind it
+            // Hint 2
+            // Getting the altitudes can be done by getting the prefix sum 
+            // array of the given array
+            altitudes[index] = altitudes[index - 1] + gain[index - 1];
+            
+            if (altitudes[index] > highestAltitude)
             {
-                highestAltitude = altitude;
+                highestAltitude = altitudes[index];
             }
         }
 

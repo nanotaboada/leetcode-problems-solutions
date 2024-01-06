@@ -38,21 +38,24 @@
 
     https://leetcode.com/problems/find-the-highest-altitude/solutions/4431238/java-time-complexity-o-n-space-complexity-o-1-runtime-0-ms-beats-100-graphical-analysis/
 
-    - Time Complexity O(n)
-    - Space Complexity O(1)
-
     - Runtime 0 ms (Beats 100.00% of users with Java)
-    - Memory 41.60 MB (Beats 6.57% of users with Java)
+    - Memory 41.60 MB (Beats 19.36% of users with Java)
 */
 
 class Solution {
     public int largestAltitude(int[] gain) {
-        int altitude = 0;
+        int[] altitudes = new int[gain.length + 1];
         int highestAltitude = 0;
-        for (int netgain : gain) {
-            altitude += netgain;
-            if (altitude > highestAltitude) {
-                highestAltitude = altitude;
+        for (int index = 1; index <= gain.length; index++) {
+            // Hint 1
+            // Let's note that the altitude of an element is the sum of gains
+            // of all the elements behind it
+            // Hint 2
+            // Getting the altitudes can be done by getting the prefix sum 
+            // array of the given array
+            altitudes[index] = altitudes[index - 1] + gain[index - 1];
+            if (altitudes[index] > highestAltitude) {
+                highestAltitude = altitudes[index];
             }
         }
         return highestAltitude;
