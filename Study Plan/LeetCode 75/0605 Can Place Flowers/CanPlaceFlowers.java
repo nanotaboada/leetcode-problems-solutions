@@ -7,21 +7,26 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 2 ms (Beats 7.13% of users with Java)
-    - Memory 45.20 MB (Beats 7.08% of users with Java)
+    https://leetcode.com/problems/can-place-flowers/solutions/4529149/java-time-complexity-o-n-space-complexity-o-1-beats-98-in-runtime/
+    
+    - Runtime 1 ms (Beats 98.39% of users with Java)
+    - Memory 45.10 MB (Beats 29.62% of users with Java)
 */
 
 class Solution {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        for (int plot = 0; plot < flowerbed.length; plot++) {            
+        for (int plot = 0; plot < flowerbed.length; plot++) {
             boolean isPreviousPlotEmpty = getElementAtOrDefault(flowerbed, plot-1) == 0;
             boolean isCurrentPlotEmpty = flowerbed[plot] == 0;
             boolean isNextPlotEmpty = getElementAtOrDefault(flowerbed, plot+1) == 0;
+            // Check if the previous, current and next plots are empty
             if (isPreviousPlotEmpty && isCurrentPlotEmpty && isNextPlotEmpty) {
-                // plant a flower in the plot
+                // Plant a flower in the plot
                 flowerbed[plot] = 1;
-                // decrease remaining flowers
+                // Decrease remaining flowers
                 n--;
+                // Early return
+                if (n <= 0) return true;
             }
         }
         return n <= 0;

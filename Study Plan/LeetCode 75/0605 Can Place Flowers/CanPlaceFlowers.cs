@@ -7,8 +7,8 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 102 ms (Beats 51.22% of users with C#)
-    - Memory 45.76 MB (Beats 55.42% of users with C#)
+    - Runtime 107 ms (Beats 41.56% of users with C#)
+    - Memory 48.43 MB (Beats 5.72% of users with C#)
 */
 
 public class Solution
@@ -23,12 +23,15 @@ public class Solution
             var isCurrentPlotEmpty = flowerbed[plot] == 0;
             var isNextPlotEmpty = flowerbed.ElementAtOrDefault(plot+1) == 0;
 
+            // Check if the previous, current and next plots are empty
             if (isPreviousPlotEmpty && isCurrentPlotEmpty && isNextPlotEmpty)
             {
-                // plant a flower in the plot
+                // Plant a flower in the plot
                 flowerbed[plot] = 1;
-                // decrease remaining flowers
+                // Decrease remaining flowers
                 n--;
+                // Early return
+                if (n <= 0) return true;
             }
         }
         
