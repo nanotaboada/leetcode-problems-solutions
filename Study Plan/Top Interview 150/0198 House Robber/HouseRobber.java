@@ -9,121 +9,131 @@
     --------------------------------------------------------------------------------
     Taking into account the Topics and Hints provided, a Dynamic Programming
     approach is expected for this solution.
+
+    Dynamic programming (DP) is a powerful technique for solving optimization
+    problems by breaking them down into smaller, overlapping sub-problems and
+    storing the solutions for future use.
+    Here are the key steps involved in the DP approach:
+
+    1. Identify overlapping sub-problems: Analyze the problem and see if it can
+    be decomposed into smaller, independent sub-problems. These sub-problems
+    should have some overlap, meaning their solutions contribute to the overall
+    solution in multiple ways.
+
+    2. Define a recursive solution: Formulate a recursive function that solves
+    the entire problem by breaking it down into smaller sub-problems using the
+    identified decomposition. This function should call itself with smaller
+    inputs until it reaches base cases where the solution is straightforward.
+
+    3. Memoization/Tabulation: Implement a mechanism to store the solutions of
+    these sub-problems as they are computed. This avoids redundant computations
+    and significantly improves efficiency. Memoization stores solutions based on
+    the specific inputs used, while tabulation builds a table of solutions for
+    all possible sub-problems based on their size or relevant parameters.
+
+    4. Build the solution: Use the stored solutions (from memoization or
+    tabulation) to build the solution for the overall problem.
+
+    Here are some additional points to remember:
+
+    - Identifying overlapping sub-problems is crucial for successful DP 
+    application. Not all problems have this characteristic, and applying DP to
+    inappropriate problems can lead to worse performance compared to direct
+    solutions.
+
+    - Choosing the right data structure for memoization or tabulation depends on
+    the nature of the sub-problems and their relationships. Arrays, hash tables,
+    and other structures can be used depending on the specific case.
+    
+    - Visualization tools and diagrams can be helpful in understanding the
+    decomposition and solution construction process in DP.
+
     --------------------------------------------------------------------------------
-    Dynamic Programming (DP):
-
-    An algorithmic paradigm for solving optimization problems.
-    It works by breaking down a problem into smaller, overlapping subproblems,
-    solving each subproblem only once, and storing the results for future reuse.
-    This avoids redundant calculations and improves efficiency.
-
-    Key Steps:
-
-    - Identify Overlapping Subproblems: Recognize that the problem can be
-      divided into smaller, overlapping subproblems.
-
-    - Define a Recursive Solution: Express the solution to the problem in terms
-      of the solutions to its subproblems.
-
-    - Memoize or Tabulate Solutions: Store the solutions to subproblems to avoid
-      recalculation.
-
-    - Construct the Optimal Solution: Build the overall solution from the saved
-      subproblem solutions.
-
+    1. Identify overlapping sub-problems
     --------------------------------------------------------------------------------
-    Identify Overlapping Subproblems
-    --------------------------------------------------------------------------------
+
     "Adjacent houses have security systems connected and it will automatically
     contact the police if two adjacent houses were broken into on the same night."
-    --------------------------------------------------------------------------------
-    Define a Recursive Solution
-    --------------------------------------------------------------------------------
-    Keeping in mind the "adjacent houses" rule, to have reached any house n along
-    the street, we must either:
 
-    - Have robbed house n (and also n-2) but not house n-1, or
+    We have two options:
+    - Start with the first house (index 0), skip the second (index 1) and
+    continue with the third (index 2).
+    - Skip the first house (index 0), continue with the second (index 1) and
+    skip the third (index 2).
+
+    --------------------------------------------------------------------------------
+    2. Define a Recursive Solution
+    --------------------------------------------------------------------------------
+
+    To have reached any house (n) along the street, we must either:
+
+    - Have reached house n (and also n-2) but not house n-1, or
 
      n-2     n-1      n
       ^       ^       ^
-    /   \   / $ \   /   \
+    / X \   / $ \   / X \
     | _ |   | _ |   | _ |
 
-    - Have not robbed house n, but have robbed n-1.
+    - Have not reached house n, but have reached n-1.
 
      n-2     n-1      n
       ^       ^       ^
-    / $ \   /   \   / $ \
+    / $ \   / X \   / $ \
     | _ |   | _ |   | _ |
 
     Therefore the maximum possible amount of money must be the higher amount
     between our two options, n + n-2 or n-1
-    --------------------------------------------------------------------------------
-    Memoize or Tabulate Solutions
-    --------------------------------------------------------------------------------
-    We will make use of the money array to store the maximum amount of each option.
 
-    Let's approach the problem bottom-up (tabulation),
+    --------------------------------------------------------------------------------
+    3. Memoization/Tabulation
+    --------------------------------------------------------------------------------
+
+    Let's approach the problem _bottom-up_ (tabulation)
+
+    - This approach builds a table to store the solutions for all sub-problems
+    (reaching every step) based on their size (n).
+
+    - The solution for each step is calculated iteratively based on the
+    previously computed solutions at smaller steps.
+
+    We will make use of the `money` array to store the maximum amount of each
+    option.
+
     So our base cases will be:
 
     money[0] = nums[0];
-    money[1] = Math.max(nums[0], nums[1]);
+    money[1] = Math.Max(nums[0], nums[1]);
 
-    From there, we can apply our recursive solution to calculate the remaining
-    houses, starting with the third (house = 2) until house n (street)
-
-    money[house] = Math.max(money[house-2] + nums[house], money[house-1]);
-
-    Given nums = [ 2, 7, 3, 1, 4, 2, 1, 8 ]
-
-    For house = 2
-      0       1       2
-    ---------------------
-      ^       ^       ^
-    /   \   /   \   /   \
-    | 2 |   | 7 |   | 3 |
-    ---------------------
-    ( $ )   ( $ )   ( $ )
-      2       7       ?
-    ---------------------
-    Math.max(money[0] + nums[2], money[1])
-    Math.max(   2     +    3   ,    7    )
-    Math.max(         5        ,    7    )
-
-    For house = 3
-      0       1       2       3
-    -----------------------------
-      ^       ^       ^       ^
-    /   \   /   \   /   \   /   \
-    | 2 |   | 7 |   | 3 |   | 1 |
-    -----------------------------
-    ( $ )   ( $ )   ( $ )   ( $ )
-      2       7       7       ?       
-    -----------------------------
-    Math.max(money[1] + nums[3], money[2])
-    Math.max(   7     +    1   ,    7    )
-    Math.max(         8        ,    7    )
-
-    Finally, the latest 2 elements of our record will have maximum amounts,
-    but we need to return also the higher between them.
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/house-robber/solutions/4529759/java-dynamic-programming-step-by-step-time-and-space-complexity-0-n-runtime-0ms-beats-100/
+    4. Build the solution
+    --------------------------------------------------------------------------------
+
+    From there, we can apply our solution to calculate the remaining houses,
+    starting with the second (`house = 2`) until house n (`street`)
+
+    int one = nums[house] + money[house-2];
+    int two = money[house-1];
+    money[house] = Math.max(one, two);
+
+    --------------------------------------------------------------------------------
+    https://leetcode.com/problems/house-robber/solutions/4529759/java-dynamic-programming-step-by-step-beats-100-in-runtime-time-and-space-complexity-on/
     
     - Runtime 0 ms (Beats 100.00% of users with Java)
     - Memory 41.22 MB (Beats 6.95% of users with Java)
 */
 
 class Solution {
-    public int rob(int[] nums) {
-        int street = nums.length;
-        if (street < 2) return nums[0];
-        if (street == 2) return Math.max(nums[0], nums[1]);
-        int[] money = new int[street];
-        money[0] = nums[0];
-        money[1] = Math.max(nums[0], nums[1]);
-        for (var house = 2; house < street; house++) {
-            money[house] = Math.max(money[house-2] + nums[house], money[house-1]);
-        }
-        return Math.max(money[money.length-1], money[money.length-2]);
-    }
+  public int rob(int[] nums) {
+      int street = nums.length;
+      if (street == 1) return nums[0];
+      int[] money = new int[street];
+      money[0] = nums[0];
+      money[1] = Math.max(nums[0], nums[1]);
+      for (int house = 2; house < street; house++) {
+          int one = nums[house] + money[house-2];
+          int two = money[house-1];
+          money[house] = Math.max(one, two);
+      }
+      return money[street-1];
+  }
 }

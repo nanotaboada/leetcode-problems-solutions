@@ -10,39 +10,60 @@
     Taking into account the Topics and Hints provided, a Dynamic Programming
     approach is expected for this solution.
 
+    Dynamic programming (DP) is a powerful technique for solving optimization
+    problems by breaking them down into smaller, overlapping sub-problems and
+    storing the solutions for future use.
+    Here are the key steps involved in the DP approach:
+
+    1. Identify overlapping sub-problems: Analyze the problem and see if it can
+    be decomposed into smaller, independent sub-problems. These sub-problems
+    should have some overlap, meaning their solutions contribute to the overall
+    solution in multiple ways.
+
+    2. Define a recursive solution: Formulate a recursive function that solves
+    the entire problem by breaking it down into smaller sub-problems using the
+    identified decomposition. This function should call itself with smaller
+    inputs until it reaches base cases where the solution is straightforward.
+
+    3. Memoization/Tabulation: Implement a mechanism to store the solutions of
+    these sub-problems as they are computed. This avoids redundant computations
+    and significantly improves efficiency. Memoization stores solutions based on
+    the specific inputs used, while tabulation builds a table of solutions for
+    all possible sub-problems based on their size or relevant parameters.
+
+    4. Build the solution: Use the stored solutions (from memoization or
+    tabulation) to build the solution for the overall problem.
+
+    Here are some additional points to remember:
+
+    - Identifying overlapping sub-problems is crucial for successful DP 
+    application. Not all problems have this characteristic, and applying DP to
+    inappropriate problems can lead to worse performance compared to direct
+    solutions.
+
+    - Choosing the right data structure for memoization or tabulation depends on
+    the nature of the sub-problems and their relationships. Arrays, hash tables,
+    and other structures can be used depending on the specific case.
+    
+    - Visualization tools and diagrams can be helpful in understanding the
+    decomposition and solution construction process in DP.
+
     --------------------------------------------------------------------------------
-    Dynamic Programming (DP):
-
-    An algorithmic paradigm for solving optimization problems.
-    It works by breaking down a problem into smaller, overlapping subproblems,
-    solving each subproblem only once, and storing the results for future reuse.
-    This avoids redundant calculations and improves efficiency.
-
-    Key Steps:
-
-    - Identify Overlapping Subproblems: Recognize that the problem can be
-      divided into smaller, overlapping subproblems.
-
-    - Define a Recursive Solution: Express the solution to the problem in terms
-      of the solutions to its subproblems.
-
-    - Memoize or Tabulate Solutions: Store the solutions to subproblems to avoid
-      recalculation.
-
-    - Construct the Optimal Solution: Build the overall solution from the saved
-      subproblem solutions.
+    1. Identify overlapping sub-problems
     --------------------------------------------------------------------------------
-    Identify Overlapping Subproblems
-    --------------------------------------------------------------------------------
-    "To reach the top of the floor", we have two options:
 
+    "You can either start from the step with index 0, or the step with index 1."
+
+    We have two options:
     - "Start from the step with index 0", pay that cost, climb one step,
         pay that cost as well.
     - "Start from the step with index 1", pay that cost, climb two steps,
         pay that cost as well.
+
     --------------------------------------------------------------------------------
-    Define a Recursive Solution
+    2. Define a Recursive Solution
     --------------------------------------------------------------------------------
+
     To have reached any step (n) we must either:
     
     - Have climbed 1 step from the penultimate step (n-1), or
@@ -55,60 +76,75 @@
     - Have climbed 2 steps from the antepenultimate step (n-2)
 
     2 steps
-               +  n
+             +    n
               ____|
     n-2 ____ |
 
     We need to sum because we have to pay a cost for every step we take.
 
     Therefore the minimum cost to reach step n will be the cheapest between our
-    possible options, taking one step or two steps.
+    possible options: taking one step or two steps.
+
     --------------------------------------------------------------------------------
-    Memoize or Tabulate Solutions
+    3. Memoization/Tabulation
     --------------------------------------------------------------------------------
+
+    Let's approach the problem _bottom-up_ (tabulation)
+
+    - This approach builds a table to store the solutions for all sub-problems
+    (reaching every step) based on their size (n).
+
+    - The solution for each step is calculated iteratively based on the previously
+    computed solutions at smaller steps.
+
     We will make use of the price array to store the minimum cost of each option.
-    
-    As the description suggests, let's approach the problem bottom-up (tabulation),
+
     So our base cases will be:
-    "start from the step with index 0, or the step with index 1."
 
     price[0] = cost[0]
     price[1] = cost[1]
 
-    From there, we can apply our recursive solution to calculate the remaining
-    steps, starting with the third (step = 2) until step n (stair)
+    --------------------------------------------------------------------------------
+    4. Build the solution
+    --------------------------------------------------------------------------------
 
-    price[2] = Math.Min(cost[step] + price[step-1], cost[step] + price[step-2])
+    From there, we can apply our solution to calculate the remaining steps,
+    starting with the second (step = 2) until step n (steps)
+
+    var one = cost[step] + price[step-1];
+    var two = cost[step] + price[step-2];
+    price[step] = Math.Min(one, two);
 
     Finally, the latest 2 elements of our record will have minimum costs of the
     previous steps, but we need to return also the cheapest between them.
-    --------------------------------------------------------------------------------
-    https://leetcode.com/problems/min-cost-climbing-stairs/solutions/4475426/c-dynamic-programming-step-by-step-analysis-time-and-space-complexity-0-n/
 
-    - Runtime 70 ms (Beats 96.11% of users with C#)
-    - Memory 41.73 MB (Beats 6.73%of users with C#)
+    Math.Min(price[stair-1], price[stair-2])
+
+    --------------------------------------------------------------------------------
+    https://leetcode.com/problems/min-cost-climbing-stairs/solutions/4475426/c-dynamic-programming-step-by-step-beats-92-in-runtime-time-and-space-complexity-o-n/
+
+    - Runtime 76 ms (Beats 71.41% of users with C#)
+    - Memory 41.56 MB (Beats 29.74% of users with C#)
 */
 
 public class Solution
 {
     public int MinCostClimbingStairs(int[] cost)
     {
-        if (cost.Length < 2) return cost[0];
-        if (cost.Length == 2) return cost[1];
+        var stairs = cost.Length;
+        if (stairs == 1) return cost[0];
 
-        var stair = cost.Length;
-        
-        var price = new int[stair];
+        int[] price = new int[stairs];
         price[0] = cost[0];
         price[1] = cost[1];
 
-        for (var step = 2; step < stair; step++)
+        for (var step = 2; step < stairs; step++)
         {
             var one = cost[step] + price[step-1];
             var two = cost[step] + price[step-2];
             price[step] = Math.Min(one, two);
         }
 
-        return Math.Min(price[price.Length-1], price[price.Length-2]);
+        return Math.Min(price[stairs-1], price[stairs-2]);
     }
 }
