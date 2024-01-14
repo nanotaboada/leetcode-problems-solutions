@@ -1,20 +1,16 @@
 /*  
     Problem
     --------------------------------------------------------------------------------
-    13. Roman to Integers
+    13. Roman to Integer
 */
 
 /*  
     Solution
     --------------------------------------------------------------------------------
+    https://leetcode.com/problems/roman-to-integer/solutions/4565600/c-beats-90-in-runtime-dictionary-time-complexity-o-n-space-complexity-o-1/
 
-    1. Take the value of the last symbol to compare it with the second last
-    2. Cycle from the second last to the first symbol comparing its values
-    3. If the value is smaller than the next, they have to be subtracted
-    4. If the value is bigger than the next, they have to be be added
-
-    - Runtime 78 ms (Beats 12.43% of users with C#)
-    - Memory 48.25 MB (Beats 33.33% of users with C#)
+    - Runtime 52 ms (Beats 90.03% of users with C#)
+    - Memory 48.95 MB (Beats 22.08% of users with C#)
 */
 public class Solution
 {
@@ -24,36 +20,40 @@ public class Solution
 
         Dictionary<char, int> symbolsAndValues = new()
         {
-            { 'I', 1 },
-            { 'V', 5 },
-            { 'X', 10 },
-            { 'L', 50 },
-            { 'C', 100 },
-            { 'D', 500 },
-            { 'M', 1000 }
+            {'I',    1},
+            {'V',    5},
+            {'X',   10},
+            {'L',   50},
+            {'C',  100},
+            {'D',  500},
+            {'M', 1000}
         };
 
         var symbols = s.ToCharArray();
 
         // Take the value of the last symbol to compare it with the second last
-        integer = symbolsAndValues[symbols.Last()];
+        integer = symbolsAndValues[symbols[^1]];
 
-        // Cycle from the second last to the first symbol comparing its values
-        for (int i = symbols.Length - 2; i >= 0; i--)
+        // Hint 1
+        // Problem is simpler to solve by working the string from back to front
+        // and using a map.
+        for (var index = symbols.Length - 2; index >= 0; index--)
         {
-            var symbol = symbols[i];
-            var nextSymbol = symbols[i+1];
+            var symbol = symbols[index];
+            var nextSymbol = symbols[index + 1];
             var valueOfSymbol = symbolsAndValues[symbol];
             var valueOfNextSymbol = symbolsAndValues[nextSymbol];
 
-            // If the first value is smaller than the next, they have to be subtracted
-            if ( valueOfSymbol < valueOfNextSymbol)
+            // If the first value is smaller than the next,
+            if (valueOfSymbol < valueOfNextSymbol)
             {
+                // they have to be subtracted
                 integer -= valueOfSymbol;
             }
+            // If the value is bigger than the next,
             else
             {
-                // If the value is bigger than the next, they have to be be added
+                // they have to be be added
                 integer += valueOfSymbol;
             }
         }
