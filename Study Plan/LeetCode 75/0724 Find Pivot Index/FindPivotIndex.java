@@ -9,14 +9,14 @@
     --------------------------------------------------------------------------------
 
     -----------------------------------------------
-    | sumRight = 28        | sumLeft = 0          |
+    | rightSum = 28        | leftSum = 0          |
     -----------------------------------------------
     | -------------------> | <                    |
     | [ 1, 7, 3, 6, 5, 6 ] | [ 1, 7, 3, 6, 5, 6 ] |
     -----------------------------------------------
 
     -----------------------------------------------------------------------
-    | i |        nums          | sumRight | sumRight == sumLeft | sumLeft |
+    | i |        nums          | rightSum | rightSum == leftSum | leftSum |
     -----------------------------------------------------------------------
     | 0 | < i  --------------> | (28 - 1) |      (27 == 0)      | (0 + 1) |
     |   | [ 1, 7, 3, 6, 5, 6 ] |    27    |        False        |    1    |
@@ -31,20 +31,25 @@
     |   | [ 1, 7, 3, 6, 5, 6 ] |    11    |         True        |         |
     -----------------------------------------------------------------------
 
-    - Runtime 4 ms (Beats 16.18% of users with Java)
-    - Memory 45.34 MB (Beats 6.28% of users with Java)
+    https://leetcode.com/problems/find-pivot-index/solutions/4582195/java-beats-98-in-runtime-step-by-step-example-time-complexity-o-n-space-complexity-o-1/
+
+    - Runtime 1 ms (Beats 98.82% of users with Java)
+    - Memory 45.19 MB (Beats 45.14% of users with Java)
 */
 
 class Solution {
     public int pivotIndex(int[] nums) {
-        int sumRight = Arrays.stream(nums).sum();
-        int sumLeft = 0;
+        int rightSum = 0;
         for (int i = 0; i < nums.length; i++) {
-            sumRight -= nums[i];
-            if (sumLeft == sumRight) {
+            rightSum += nums[i];
+        }
+        int leftSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            rightSum -= nums[i];
+            if (leftSum == rightSum) {
                 return i;
             }
-            sumLeft += nums[i];
+            leftSum += nums[i];
         }
         return -1;
     }

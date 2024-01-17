@@ -9,14 +9,14 @@
     --------------------------------------------------------------------------------
 
     -----------------------------------------------
-    | sumRight = 28        | sumLeft = 0          |
+    | rightSum = 28        | leftSum = 0          |
     -----------------------------------------------
     | -------------------> | <                    |
     | [ 1, 7, 3, 6, 5, 6 ] | [ 1, 7, 3, 6, 5, 6 ] |
     -----------------------------------------------
 
     -----------------------------------------------------------------------
-    | i |        nums          | sumRight | sumRight == sumLeft | sumLeft |
+    | i |        nums          | rightSum | rightSum == leftSum | leftSum |
     -----------------------------------------------------------------------
     | 0 | < i  --------------> | (28 - 1) |      (27 == 0)      | (0 + 1) |
     |   | [ 1, 7, 3, 6, 5, 6 ] |    27    |        False        |    1    |
@@ -33,30 +33,33 @@
 
     https://leetcode.com/problems/find-pivot-index/solutions/4414019/c-time-complexity-o-n-space-complexity-o-1-beats-74-in-runtime-step-by-step-example/
 
-    - Time Complexity O(n)
-    - Space Complexity O(1)
-
-    - Runtime 94 ms (Beats 74.36% of users with C#)
-    - Memory 46.00 MB (Beats 76.06% of users with C#)
+    - Runtime 99 ms (Beats 68.02% of users with C#)
+    - Memory 47.74 MB (Beats 30.63% of users with C#)
 */
 
 public class Solution
 {
     public int PivotIndex(int[] nums)
     {
-        var sumRight = nums.Sum();
-        var sumLeft = 0;
+        var rightSum = 0;
 
         for (var i = 0; i < nums.Length; i++)
         {
-            sumRight -= nums[i];
+            rightSum += nums[i];
+        }
 
-            if (sumLeft == sumRight)
+        var leftSum = 0;
+
+        for (var i = 0; i < nums.Length; i++)
+        {
+            rightSum -= nums[i];
+
+            if (leftSum == rightSum)
             {
                 return i;
             }
 
-            sumLeft += nums[i];
+            leftSum += nums[i];
         }
 
         return -1;

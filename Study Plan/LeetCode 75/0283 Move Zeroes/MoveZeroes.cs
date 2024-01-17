@@ -36,11 +36,8 @@
 
     https://leetcode.com/problems/move-zeroes/solutions/4391658/c-in-place-time-complexity-o-n-space-complexity-o-1-beats-50-in-runtime/
 
-    - Time Complexity O(n)
-    - Space Complexity O(1)
-
-    - Runtime 151 ms (Beats 50.85% of users with C#)
-    - Memory 54.28 MB (Beats 40.29% of users with C#)
+    - Runtime 145 ms (Beats 70.66% of users with C#)
+    - Memory 57.22 MB (Beats 26.02% of users with C#)
 */
 
 public class Solution
