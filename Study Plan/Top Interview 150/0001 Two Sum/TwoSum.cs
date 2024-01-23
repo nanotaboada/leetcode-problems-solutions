@@ -7,25 +7,40 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 179 ms (Beats 19.04% of users with C#)
-    - Memory 44.43 MB (Beats 46.07% of users with C#)
+    https://leetcode.com/problems/two-sum/solutions/4614598/c-based-on-hints-beats-95-in-runtime-time-and-space-complexity-o-n/
+    
+    - Runtime 110 ms (Beats 95.01% of users with C#)
+    - Memory 48.20 MB (Beats 7.33% of users with C#)
 */
 
-public class Solution {
-    
+public class Solution
+{
     public int[] TwoSum(int[] nums, int target)
     {
-        for (var i = 0; i < nums.Length; i++)
+        // Hint 3
+        // The second train of thought is, without changing the array, can we
+        // use additional space somehow? Like maybe a hash map to speed up the
+        // search?
+        var numberAndIndex = new Dictionary<int, int>(nums.Length);
+
+        for (var index = 0; index < nums.Length; index++)
         {
-            for (var j = i + 1; j < nums.Length; j++)
+            // Hint 2
+            // "y which is value - x where value is the input parameter"
+            // hints the concept of the complement:
+            // x + y = target
+            // y = target - x
+            var complement = target - nums[index];
+
+            if (numberAndIndex.ContainsKey(complement))
             {
-                if (nums[i] + nums[j] == target)
-                {
-                    return new int[2] {i, j};
-                }
+                return new int[] { numberAndIndex[complement], index };
             }
+
+            numberAndIndex.TryAdd(nums[index], index);
         }
         
-        return null;
+        // You may assume that each input would have exactly one solution   
+        throw new ArgumentException();
     }
 }
