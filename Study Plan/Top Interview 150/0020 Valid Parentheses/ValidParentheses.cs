@@ -7,12 +7,11 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/valid-parentheses/solutions/4422923/c-time-and-space-complexity-o-n-beats-60-in-runtime-based-on-provided-hints/
+    https://leetcode.com/problems/valid-parentheses/solutions/4422923/c-based-on-hints-beats-92-in-runtime-time-and-space-complexity-o-n/
 
-    - Time and Space Complexity O(n)
+    - Runtime 49 ms (Beats 92.18% of users with C#)
+    - Memory 39.50 MB (Beats 25.21% of users with C#)
     
-    - Runtime 67 ms (Beats 60.01% of users with C#)
-    - Memory 38.22 MB (Beats 17.47% of users with C#)
 */
 
 public class Solution
@@ -23,7 +22,7 @@ public class Solution
 
         // Hint 1
         // Use a stack of characters.
-        var characters = new Stack<char>();
+        var characters = new Stack<char>(s.Length);
 
         for (var character = 0; character < s.Length; character++)
         {

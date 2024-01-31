@@ -7,12 +7,10 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/valid-parentheses/solutions/4433109/java-time-and-space-complexity-o-n-beats-82-in-runtime-based-on-provided-hints/
+    https://leetcode.com/problems/valid-parentheses/solutions/4433109/java-based-on-hints-beats-82-in-runtime-time-and-space-complexity-o-n/
 
-    - Time and Space Complexity O(n)
-
-    - Runtime 2 ms (Beats 82.70% of users with Java)
-    - Memory 41.74 MB (Beats 6.54% of users with Java)
+    - Runtime 2 ms (Beats 67.06% of users with Java)
+    - Memory 41.34 MB (Beats 50.86% of users with Java)
 */
 
 class Solution {
@@ -20,7 +18,8 @@ class Solution {
         if (s.length() == 1) return false;
         // Hint 1
         // Use a stack of characters.
-        Stack<Character> characters = new Stack<>();
+        // https://www.baeldung.com/java-deque-vs-stack
+        Deque<Character> characters = new ArrayDeque<>(s.length());
         for (int character = 0; character < s.length(); character++) {
             // Hint 2
             // When you encounter an opening bracket,
@@ -33,15 +32,15 @@ class Solution {
             // When you encounter a closing bracket, check if the top of the stack
             // was the opening for it.
             }  else if ((s.charAt(character) == ')' 
-                && !characters.empty() 
+                && !characters.isEmpty() 
                 && characters.peek() == '(')
                 || 
                 (s.charAt(character) == ']' 
-                && !characters.empty() 
+                && !characters.isEmpty() 
                 && characters.peek() == '[')
                 || 
                 (s.charAt(character) == '}' 
-                && !characters.empty() 
+                && !characters.isEmpty() 
                 && characters.peek() == '{')) {
                 // If yes, pop it from the stack.
                 characters.pop();
@@ -50,6 +49,6 @@ class Solution {
                 return false;
             }
         }
-        return characters.empty();
+        return characters.isEmpty();
     }
 }
