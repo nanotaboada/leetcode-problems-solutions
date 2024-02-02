@@ -4,13 +4,11 @@
     14. Longest Common Prefix
 */
 
-/*
+/*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/longest-common-prefix/solutions/4432653/c-beats-85-in-runtime-time-complexity-o-n-log-n-space-complexity-o-n/
-
-    - Runtime 65 ms (Beats 85.12% of users with C#)
-    - Memory 42.54 MB (Beats 24.10% of users with C#)
+    - Runtime 1 ms (Beats 80.96% of users with Java)
+    - Memory 41.38 MB (Beats 53.64% of users with Java)
 */
 
 public class Solution
@@ -23,33 +21,24 @@ public class Solution
         |f| l o w           |f l| o w           |f l o| w
         |f| l i g h t       |f l| i g h t        f l i g h t
     */
-    public string LongestCommonPrefix(string[] strs)
-    {
-        if (strs[0].Length == 0) return string.Empty;
-        
-        var prefix = new StringBuilder();
-
+    public String longestCommonPrefix(String[] strs) {
+        if (strs[0].length() == 0) return "";
+        StringBuilder prefix = new StringBuilder();
         // Sort by the largest word to prevent System.IndexOutOfRangeException
-        Array.Sort(strs, (x, y) => x.Length.CompareTo(y.Length));
-
+        Arrays.sort(strs, (x, y) -> Integer.compare(x.length(), y.length()));
         // Loop through all characters of the first word
-        for (var i = 0; i < strs[0].Length; i++)
-        {
-            var character = strs[0][i];
-
+        for (int i = 0; i < strs[0].length(); i++) {
+            char character = strs[0].charAt(i);
             // Loop through all words
-            for (var j = 0; j < strs.Length; j++)
-            {
+            for (var j = 0; j < strs.length; j++) {
                 // Check our current character on all words 
-                if (strs[j][i] != character)
-                {
-                    return prefix.ToString();
+                if (strs[j].charAt(i) != character) {
+                    return prefix.toString();
                 }
             }
             // Collect the common character among all words
-            prefix.Append(character);
+            prefix.append(character);
         }
-        
-        return prefix.ToString();
+        return prefix.toString();
     }
 }
