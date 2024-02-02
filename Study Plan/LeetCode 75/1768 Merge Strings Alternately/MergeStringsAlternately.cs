@@ -7,14 +7,15 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 80 ms (Beats 15.04% of users with C#)
-    - Memory 37.96 MB (Beats 42.76% of users with C#)
+    - Runtime 52 ms (Beats 77.01% of users with C#)
+    - Memory 39.87 MB (Beats 19.97% of users with C#)
 */
+
 public class Solution
 {
     public string MergeAlternately(string word1, string word2)
     {
-        var merged = new StringBuilder();
+        var merged = new StringBuilder(word1.Length + word2.Length);
 
         var longer = (word1.Length >= word2.Length) ? word1 : word2;
         var shorter = (word1.Length < word2.Length) ? word1 : word2;

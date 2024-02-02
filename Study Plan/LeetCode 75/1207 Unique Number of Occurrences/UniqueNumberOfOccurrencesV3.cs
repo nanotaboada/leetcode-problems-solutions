@@ -7,8 +7,10 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 67 ms (Beats 94.59% of users with C#)
-    - Memory 42.27 MB (Beats 24.47% of users with C#)
+    https://leetcode.com/problems/unique-number-of-occurrences/solutions/4643870/c-based-on-hints-beats-95-in-runtime-time-and-space-complexity-o-n/
+
+    - Runtime 61 ms (Beats 95.05% of users with C#)
+    - Memory 41.85 MB (Beats 89.02% of users with C#)
 */
 
 public class Solution
@@ -18,7 +20,7 @@ public class Solution
         // Hint 1
         // Find the number of occurrences of each element in the array
         // using a hash map.
-        var occurrences = new Dictionary<int, int>();
+        var occurrences = new Dictionary<int, int>(arr.Length);
 
         foreach (var element in arr)
         {
