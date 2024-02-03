@@ -7,33 +7,31 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/reverse-vowels-of-a-string/solutions/4384067/c-linq-time-complexity-o-n-m-space-complexity-o-n-beats-81-in-runtime/
-
-    - Time Complexity O(n + m)
-    - Space Complexity O(n)
-
-    - Runtime 74 ms (Beats 81.94% of users with C#)
-    - Memory 37.96 MB (Beats 52.28% of users with C#)
+    https://leetcode.com/problems/reverse-vowels-of-a-string/solutions/4384067/c-linq-beats-91-in-runtime-time-and-space-complexity-o-n-stringbuilder-and-stack/
+    - Runtime 58 ms (Beats 91.50% of users with C#)
+    - Memory 44.92 MB (Beats 31.66% of users with C#)
 */
 
 public class Solution
 {
     public string ReverseVowels(string s)
     {
-        var text = new StringBuilder();
-        var next = 0;
-
-        var vowels = s
-            .Where(letter => isVowel(letter))
-            .Reverse()
-            .ToArray();
-
+        var text = new StringBuilder(s.Length);
+        var vowels = new Stack<char>();
+        
         foreach (var letter in s)
         {
             if (isVowel(letter))
             {
-                text.Append(vowels[next]);
-                next++;
+                vowels.Push(letter);
+            }
+        }
+
+        foreach (var letter in s)
+        {
+            if(isVowel(letter))
+            {
+                text.Append(vowels.Pop());
             }
             else
             {

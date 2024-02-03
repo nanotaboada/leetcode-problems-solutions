@@ -7,19 +7,14 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 7 ms (Beats 75.17% of users with Java)
-    - Memory 42.72 MB (Beats 67.88% of users with Java)
+    - Runtime 8 ms (Beats 57.55% of users with Java)
+    - Memory 43.00 MB (Beats 67.52% of users with Java)
 */
 
 class Solution {
     public String reverseWords(String s) {
-        // https://www.baeldung.com/string/split
-        String[] words = s.split("\\s+", -1);
-        Collections.reverse(Arrays.asList(words));
-        StringBuilder reversed = new StringBuilder(words.length);
-        for (String word : words) {
-            reversed.append(word).append(" ");
-        }
-        return reversed.toString().trim();
+        List<String> words = Arrays.asList(s.split("\\s+"));
+        Collections.reverse(words);
+        return String.join(" ", words).trim();
     }
 }

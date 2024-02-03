@@ -15,10 +15,10 @@ public class Solution
 {
     public string ReverseWords(string s)
     {
-        var reversed = s
+        var words = s
             .Split(" ", StringSplitOptions.RemoveEmptyEntries)
             .Reverse();
     
-        return string.Join(" ", reversed);  
+        return string.Join(" ", words);  
     }
 }
