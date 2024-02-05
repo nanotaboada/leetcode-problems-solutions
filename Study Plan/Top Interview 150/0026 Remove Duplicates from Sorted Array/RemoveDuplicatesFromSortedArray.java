@@ -7,8 +7,9 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 1 ms (Beats 83.65% of users with Java)
-    - Memory 44.90 MB (Beats 25.39% of users with Java)
+    https://leetcode.com/problems/remove-duplicates-from-sorted-array/solutions/4679210/java-in-place-beats-100-in-runtime-time-complexity-o-n-space-complexity-o-1/
+    - Runtime 0 ms (Beats 100.00% of users with Java)
+    - Memory 45.00 MB (Beats 8.56% of users with Java)
 */
 
 public class Solution {
@@ -17,11 +18,17 @@ public class Solution {
         // Consider the number of unique elements of nums to be k
         var k = 0;
         for (var index = 0; index < nums.length - 1; index++) {
+            // Compare the current element with the next element
             if (nums[index] != nums[index + 1]) {
-                nums[k++] = nums[index];
+                // If they are not equal, update the array in-place and
+                // increment the count of unique elements
+                nums[k] = nums[index];
+                k++;
             }
         }
-        nums[k++] = nums[nums.length - 1];
+        // Update the last element of the array and increment the count
+        nums[k] = nums[nums.length - 1];
+        k++;
         return k;
     }
 }

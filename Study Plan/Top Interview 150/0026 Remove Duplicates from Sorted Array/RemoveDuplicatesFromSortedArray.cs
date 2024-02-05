@@ -22,13 +22,18 @@ public class Solution
 
         for (var index = 0; index < nums.Length - 1; index++)
         {
+            // Compare the current element with the next element
             if (nums[index] != nums[index + 1])
             {
-                nums[k++] = nums[index];
+                // If they are not equal, update the array in-place and
+                // increment the count of unique elements
+                nums[k] = nums[index];
+                k++;
             }
         }
-
-        nums[k++] = nums[nums.Length - 1];
+        // Update the last element of the array and increment the count
+        nums[k] = nums[nums.Length - 1];
+        k++;
 
         return k;
     }
