@@ -12,15 +12,14 @@
     - Runtime 66 ms (Beats 79.50% of users with C#)
     - Memory 42.44 MB (Beats 33.89% of users with C#)
 */
+
 public class Solution
 {
-    public bool IsPalindrome(string phrase)
+    public bool IsPalindrome(string s)
     {
-        var characters = phrase
+        var characters = s
             .ToLower()
-            .Where(character => char.IsLetterOrDigit(character)
-                && !char.IsPunctuation(character)
-                && !char.IsWhiteSpace(character))
+            .Where(character => char.IsLetterOrDigit(character))
             .ToArray();
 
         var forward = new string(characters);
