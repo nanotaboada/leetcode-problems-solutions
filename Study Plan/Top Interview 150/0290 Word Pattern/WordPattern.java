@@ -15,10 +15,6 @@ class Solution {
     public boolean wordPattern(String pattern, String s) {
         String[] words = s.split(" ");
         if (pattern.length() != words.length) return false;
-        // A bijection, bijective function, or one-to-one correspondence between
-        // two mathematical sets is a function such that each element of the 
-        // second set (the codomain) is mapped to from exactly one element of
-        // the first set (the domain). 
         HashMap<Character,String> letterToWord = new HashMap<>(pattern.length());
         HashMap<String,Character> wordToLetter = new HashMap<>(words.length);
         for (var index = 0; index < pattern.length(); index++) {
