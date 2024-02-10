@@ -7,21 +7,18 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/4384285/c-time-complexity-o-m-n-space-complexity-o-1-beats-71-in-runtime/
+    https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/4384285/c-beats-96-in-runtime-time-complexity-o-n-space-complexity-o-1/
 
-    - Time Complexity O(m * n)
-    - Space Complexity O(1)
-
-    - Runtime 56 ms (Beats 71.05% of users with C#)
-    - Memory 37.56 MB (Beats 9.55% of users with C#)
+    - Runtime 37 ms (Beats 96.74% of users with C#)
+    - Memory 37.71 MB (Beats 38.11% of users with C#)
 */
 public class Solution
 {
     public int StrStr(string haystack, string needle)
     {
-        if (haystack.Contains(needle))
+        if (haystack.Contains(needle, StringComparison.Ordinal))
         {
-            return haystack.IndexOf(needle);
+            return haystack.IndexOf(needle, StringComparison.Ordinal);
         }
         else
         {
