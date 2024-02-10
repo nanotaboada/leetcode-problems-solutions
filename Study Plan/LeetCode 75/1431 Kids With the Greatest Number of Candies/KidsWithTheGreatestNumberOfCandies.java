@@ -7,9 +7,8 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 4 ms (Beats 5.45% of users with Java)
-    - Memory 42.60 MB (Beats 6.09% of users with Java)
-    -  
+    - Runtime 4 ms (Beats 6.88% of users with Java)
+    - Memory 42.60 MB (Beats 15.27% of users with Java)
 */
 
 class Solution {
