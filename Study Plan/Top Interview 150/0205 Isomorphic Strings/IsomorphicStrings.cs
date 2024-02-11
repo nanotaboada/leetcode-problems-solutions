@@ -22,15 +22,14 @@ public class Solution
 
         // Map of source (Key) and target (Value) characters
         var charMap = new Dictionary<char, char>(length);
-        
         // Set of characters that have already been mapped
         var charSet = new HashSet<char>(length);
 
-        for (int i = 0; i < length; i++)
+        for (var i = 0; i < length; i++)
         {
             // Loop through the characters of both strings
-            char source = s[i];
-            char target = t[i];
+            var source = s[i];
+            var target = t[i];
 
             // Check if the character from the source has already been mapped
             if (charMap.ContainsKey(source))
@@ -54,7 +53,7 @@ public class Solution
 
                 // Add the source/target character mapping
                 charMap[source] = target;
-                // Add the target character to the set of alreaady mapped
+                // Add the target character to the set of already mapped
                 charSet.Add(target);
             }
         }

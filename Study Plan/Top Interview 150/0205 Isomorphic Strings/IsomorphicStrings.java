@@ -16,10 +16,10 @@ class Solution {
         // Constraints: t.length == s.length
         int length = s.length();
         // map of source (Key) and target (Value) characters
-        var charMap = new HashMap<Character, Character>(length);
+        HashMap<Character, Character> charMap = new HashMap<>(length);
         // set of characters that have already been mapped
-        var charSet = new HashSet<Character>(length);
-        for (var i = 0; i < length; i++) {
+        HashSet<Character> charSet = new HashSet<>(length);
+        for (int i = 0; i < length; i++) {
             // loop through the characters of both strings
             char source = s.charAt(i);
             char target = t.charAt(i);
@@ -39,7 +39,7 @@ class Solution {
                 }
                 // add the source/target character mapping
                 charMap.put(source, target);
-                // add the target character to the set of alreaady mapped
+                // add the target character to the set of already mapped
                 charSet.add(target);
             }
         }
