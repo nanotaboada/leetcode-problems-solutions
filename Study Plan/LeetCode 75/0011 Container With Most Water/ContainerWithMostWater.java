@@ -29,6 +29,9 @@
     0 _|------|------|------|------|------|------|------|------|------|------
 
                                    container = 7 x 7 = 49
+
+   - Runtime 5 ms (Beats 70.99% of users with Java)
+   - Memory 57.99 MB (Beats 43.27% of users with Java)
 */
 
 class Solution {

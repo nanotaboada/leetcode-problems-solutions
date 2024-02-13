@@ -29,6 +29,11 @@
     0 _|------|------|------|------|------|------|------|------|------|------
 
                                    container = 7 x 7 = 49
+
+   https://leetcode.com/problems/container-with-most-water/solutions/4721622/c-beats-77-in-runtime-step-by-step-time-complexity-o-n-space-complexity-o-1/
+
+   - Runtime 242 ms (Beats 77.60% of users with C#)
+   - Memory 62.18 MB (Beats 27.14% of users with C#)
 */
 
 public class Solution
