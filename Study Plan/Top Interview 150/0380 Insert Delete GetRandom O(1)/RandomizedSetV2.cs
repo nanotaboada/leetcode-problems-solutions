@@ -7,7 +7,8 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/insert-delete-getrandom-o1/solutions/4477029/c-average-case-time-complexity-o-1-hashset-and-list-straightforward-approach/
+    - Runtime 539 ms (Beats 5.04% of users with C#)
+    - Memory 122.00 MB (Beats 49.75% of users with C#)
 */
 
 public class RandomizedSet
@@ -16,7 +17,7 @@ public class RandomizedSet
     Random random = new();
     List<int> list = new();
     
-    // Average-case Time Complexity O(1)
+    // Time Complexity O(1)
     public bool Insert(int val)
     {
         if (set.Add(val))
@@ -30,7 +31,7 @@ public class RandomizedSet
         }
     }
     
-    // Average-case Time Complexity O(1)
+    // Time Complexity O(1)
     public bool Remove(int val)
     {
         if (set.Remove(val))
@@ -44,7 +45,7 @@ public class RandomizedSet
         }
     }
 
-    // Average-case Time Complexity O(1)
+    // Time Complexity O(1)
     public int GetRandom()
     {
         return list[random.Next(maxValue: list.Count)];

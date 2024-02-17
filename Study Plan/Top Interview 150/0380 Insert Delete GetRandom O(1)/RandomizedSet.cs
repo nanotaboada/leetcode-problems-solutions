@@ -7,7 +7,8 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    
+    - Runtime 946 ms (Beats 5.04% of users with C#)
+    - Memory 122.16 MB (Beats 49.65% of users with C#)
 */
 
 public class RandomizedSet
@@ -15,19 +16,19 @@ public class RandomizedSet
     HashSet<int> set = new();
     Random random = new();
 
-    // Average-case Time Complexity O(1)
+    // Time Complexity O(1)
     public bool Insert(int val)
     {
         return set.Add(val);
     }
 
-    // Average-case Time Complexity O(1)
+    // Time Complexity O(1)
     public bool Remove(int val)
     {
         return set.Remove(val);
     }
 
-    // Average-case Time Complexity O(n)
+    // Time Complexity O(n)
     public int GetRandom()
     {
         return set.ElementAt(random.Next(maxValue: set.Count));
