@@ -7,15 +7,15 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 264 ms (Beats 37.89% of users with C#)
-    - Memory 70.64 MB (Beats 9.27% of users with C#)
+    - Runtime 270 ms (Beats 81.83% of users with C#)
+    - Memory 66.01 MB (Beats 73.53% of users with C#)
 */
 
 public class Solution 
 {
     public bool ContainsNearbyDuplicate(int[] nums, int k)
     {
-        var numberAndIndex = new Dictionary<int, int>();
+        var numberAndIndex = new Dictionary<int, int>(nums.Length);
 
         for (var index = 0; index < nums.Length; index++)
         {

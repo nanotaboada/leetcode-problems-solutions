@@ -7,8 +7,8 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 129 ms (Beats 44.96% of users with C#)
-    - Memory 42.65 MB (Beats 28.39% of users with C#)
+    - Runtime 100 ms (Beats 53.69% of users with C#)
+    - Memory 45.70 MB (Beats 13.98% of users with C#)
 */
 
 public class Solution

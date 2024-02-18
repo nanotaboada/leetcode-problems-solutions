@@ -7,26 +7,28 @@
 /* 
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 1 ms (Beats 92.10% of users with Java)
-    - Memory 41.29 MB (Beats 26.67% of users with Java)
+    - Runtime 1 ms (Beats 91.07% of users with Java)
+    - Memory 41.24 MB (Beats 74.55% of users with Java)
 */
 
 class Solution {
     public boolean isSubsequence(String s, String t) {
-        String subsequence = s;
-        int subsequenceLength = subsequence.length();
-        int subsequencePointer = 0;
+        if (s.length() == 0) return true;
+        String subSequence = s;
+        int subSequenceLength = subSequence.length();
+        int subSequencePointer = 0;
         String sequence = t;
         int sequenceLength = sequence.length();
         int sequencePointer = 0;
-        while (subsequencePointer < subsequenceLength && sequencePointer < sequenceLength) {
-            if (subsequence.charAt(subsequencePointer) == sequence.charAt(sequencePointer)) {
-                subsequencePointer++;
+        while (subSequencePointer < subSequenceLength
+            && sequencePointer < sequenceLength) {
+            if (subSequence.charAt(subSequencePointer) == sequence.charAt(sequencePointer)) {
+                subSequencePointer++;
                 sequencePointer++;
             } else {
                 sequencePointer++;
             }
         }
-        return subsequencePointer == subsequenceLength;
+        return subSequencePointer == subSequenceLength;
     }
 }

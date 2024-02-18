@@ -7,26 +7,30 @@
 /* 
     Solution
     --------------------------------------------------------------------------------
-    - Runtime 58 ms (Beats 84.33% of users with C#)
-    - Memory 39.62 MB (Beats 9.69% of users with C#)
+    - Runtime 54 ms (Beats 68.78% of users with C#)
+    - Memory 39.92 MB (Beats 31.94% of users with C#)
 */
 
 public class Solution
 {
     public bool IsSubsequence(string s, string t)
     {
-        var subsequence = s;
-        var subsequenceLength = subsequence.Length;
-        var subsequencePointer = 0;
+        if (string.IsNullOrWhiteSpace(s)) return true;
+
+        var subSequence = s;
+        var subSequenceLength = subSequence.Length;
+        var subSequencePointer = 0;
+
         var sequence = t;
         var sequenceLength = sequence.Length;
         var sequencePointer = 0;
 
-        while (subsequencePointer < subsequenceLength && sequencePointer < sequenceLength)
+        while (subSequencePointer < subSequenceLength
+            && sequencePointer < sequenceLength)
         {
-            if (subsequence[subsequencePointer] == sequence[sequencePointer])
+            if (subSequence[subSequencePointer] == sequence[sequencePointer])
             {
-                subsequencePointer++;
+                subSequencePointer++;
                 sequencePointer++;
             }
             else
@@ -35,6 +39,6 @@ public class Solution
             }
         }
 
-        return subsequencePointer == subsequenceLength;
+        return subSequencePointer == subSequenceLength;
     }
 }
