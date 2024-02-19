@@ -9,20 +9,20 @@
     --------------------------------------------------------------------------------
 
     Overwrite the collection moving the non-zero elements to the beginning
-    -------------------------------------------------------
-    | i |  nums (Before)   |   nums (After)    | position |
-    -------------------------------------------------------
-    |   |  v               |  v                |          |
-    | 0 | [0, 1, 0, 3, 12] | [0, 1, 0, 3, 12]  |    0     |
-    |   |     v            |  *  v             |          |
-    | 1 | [0, 1, 0, 3, 12] | [1, 1, 0, 3, 12]  |    1     |
-    |   |        v         |  *     v          |          |
-    | 2 | [0, 1, 0, 3, 12] | [1, 1, 0, 3, 12]  |    1     |
-    |   |           v      |  *  *     v       |          |
-    | 3 | [0, 1, 0, 3, 12] | [1, 3, 0, 3, 12]  |    2     |
-    |   |              v   |  *  *  *      v   |          |
-    | 4 | [0, 1, 0, 3, 12] | [1, 3, 12, 3, 12] |    3     |
-    -------------------------------------------------------
+    -----------------------------------------------------------
+    | index |  nums (Before)   |   nums (After)    | position |
+    -----------------------------------------------------------
+    |       |  v               |  v                |          |
+    |   0   | [0, 1, 0, 3, 12] | [0, 1, 0, 3, 12]  |    0     |
+    |       |     v            |  *  v             |          |
+    |   1   | [0, 1, 0, 3, 12] | [1, 1, 0, 3, 12]  |    1     |
+    |       |        v         |  *     v          |          |
+    |   2   | [0, 1, 0, 3, 12] | [1, 1, 0, 3, 12]  |    1     |
+    |       |           v      |  *  *     v       |          |
+    |   3   | [0, 1, 0, 3, 12] | [1, 3, 0, 3, 12]  |    2     |
+    |       |              v   |  *  *  *      v   |          |
+    |   4   | [0, 1, 0, 3, 12] | [1, 3, 12, 3, 12] |    3     |
+    -----------------------------------------------------------
     
     Fill the remaining positions with zeros (from last position until length)
     ----------------------------------------------------
@@ -34,19 +34,19 @@
     |    4     | [1, 3, 12, 3, 12] | [1, 3, 12, 0, 0]  |
     ----------------------------------------------------
 
-    https://leetcode.com/problems/move-zeroes/solutions/4431061/java-in-place-beats-77-in-runtime-time-complexity-o-n-space-complexity-o-1/
+    https://leetcode.com/problems/move-zeroes/solutions/4431061/java-in-place-beats-85-in-runtime-time-complexity-o-n-space-complexity-o-1/
 
-    - Runtime 2 ms (Beats 77.28% of users with Java)
-    - Memory 46.01 MB (Beats 31.26% of users with Java)
+    - Runtime 2 ms (Beats 85.32% of users with Java)
+    - Memory 45.75 MB (Beats 87.05% of users with Java)
 */
 
 class Solution {
     public void moveZeroes(int[] nums) {
         int position = 0;
         // Overwrite the collection moving the non-zero elements to the beginning
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                nums[position] = nums[i];
+        for (int index = 0; index < nums.length; index++) {
+            if (nums[index] != 0) {
+                nums[position] = nums[index];
                 position++;
             }
         }
