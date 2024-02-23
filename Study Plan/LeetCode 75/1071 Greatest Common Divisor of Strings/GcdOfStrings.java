@@ -8,6 +8,7 @@
     Solution
     --------------------------------------------------------------------------------
     https://leetcode.com/problems/greatest-common-divisor-of-strings/solutions/4431471/java-beats-84-in-runtime-euclid-s-time-complexity-o-log-min-m-n-space-complexity-o-1/
+    
     - Runtime 1 ms (Beats 79.23% of users with Java)
     - Memory 41.98 MB (Beats 64.12% of users with Java)
 */
