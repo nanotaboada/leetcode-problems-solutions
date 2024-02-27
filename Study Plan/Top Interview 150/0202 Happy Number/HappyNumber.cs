@@ -7,10 +7,10 @@
 /*  
     Solution
     --------------------------------------------------------------------------------
-    https://leetcode.com/problems/happy-number/solutions/4423432/clean-solution-in-c-using-a-hashset-to-avoid-endless-loop-beats-75-in-runtime/
+    https://leetcode.com/problems/happy-number/solutions/4423432/c-beats-87-in-runtime-hashset-to-avoid-endless-loop-time-and-space-complexity-o-log-n/
 
-    - Runtime 28 ms (Beats 75.11% of users with C#)
-    - Memory 28.99 MB (Beats 56.68% of users with C#)
+    - Runtime 26 ms (Beats 87.46% of users with C#)
+    - Memory 29.50 MB (Beats 28.23% of users with C#)
 */
 
 public class Solution
