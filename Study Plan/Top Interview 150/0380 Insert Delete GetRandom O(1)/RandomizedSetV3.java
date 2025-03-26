@@ -1,3 +1,5 @@
+import java.security.SecureRandom;
+
 /*  
     Problem
     --------------------------------------------------------------------------------
@@ -20,7 +22,7 @@ class RandomizedSet {
     public RandomizedSet() {
         items = new ArrayList<>();
         itemsAndIndices = new HashMap<>();
-        random = new Random();
+        random = new SecureRandom();
     }
     
     // Time Complexity: O(1)
