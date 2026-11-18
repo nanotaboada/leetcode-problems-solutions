@@ -15,12 +15,6 @@
 
 public class RandomizedSet
 {
-    Dictionary<int, int> itemsAndIndices;
-    List<int> items;
-    Random random;
-
-public class RandomizedSet
-{
     List<int> items; // Stores the list of items
     Dictionary<int, int> itemsAndIndices; // Maps items to their indices
     Random random; // Random number generator
