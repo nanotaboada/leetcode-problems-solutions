@@ -1,0 +1,14 @@
+# .NET
+bin/
+obj/
+BenchmarkDotNet.Artifacts/
+*.user
+
+# Java
+target/
+
+# IDEs and OS
+.idea/
+.vs/
+.vscode/
+.DS_Store

@@ -1,0 +1,92 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The original solutions are LeetCode submissions: every file declares a
+    top-level `Solution` class with no namespace, relying on LeetCode's implicit
+    usings. They are kept untouched. Before compiling, each file is copied into
+    obj/ with a namespace derived from its folder and file name:
+
+      Study Plan/<plan>/1207 .../UniqueNumberOfOccurrences.cs      -> LeetCode.P1207.V1
+      Study Plan/<plan>/1207 .../UniqueNumberOfOccurrencesV3.cs    -> LeetCode.P1207.V3
+      Study Plan/<plan>/1207 .../UniqueNumberOfOccurrences.2026.cs -> LeetCode.P1207.V2026
+
+    A #line directive maps diagnostics and stack traces back to the original file.
+  -->
+
+  <PropertyGroup>
+    <RootNamespace>LeetCode</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Nullable>disable</Nullable>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WrappedSolutionsDirectory>$(BaseIntermediateOutputPath)Solutions/</WrappedSolutionsDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SolutionSource Include="$(MSBuildThisFileDirectory)../../Study Plan/**/*.cs" />
+    <Using Include="System.Numerics" />
+    <Using Include="System.Text" />
+  </ItemGroup>
+
+  <UsingTask TaskName="WrapSolutions"
+             TaskFactory="RoslynCodeTaskFactory"
+             AssemblyFile="$(MSBuildToolsPath)/Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Sources ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+      <OutputDirectory Required="true" />
+      <Generated ParameterType="Microsoft.Build.Framework.ITaskItem[]" Output="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+        Directory.CreateDirectory(OutputDirectory);
+        var namespaces = new HashSet<string>();
+        var generated = new List<ITaskItem>();
+
+        foreach (var source in Sources)
+        {
+            var path = source.GetMetadata("FullPath").Replace('\\', '/');
+            var folder = Path.GetFileName(Path.GetDirectoryName(path));
+            var name = Path.GetFileNameWithoutExtension(path);
+
+            var number = Regex.Match(folder, @"^\d+");
+            if (!number.Success)
+            {
+                Log.LogError($"Cannot infer problem number from folder '{folder}'.");
+                continue;
+            }
+
+            var year = Regex.Match(name, @"\.(\d{4})$");
+            var suffix = Regex.Match(name, @"V(\d+)$");
+            var version = year.Success ? year.Groups[1].Value
+                : suffix.Success ? suffix.Groups[1].Value
+                : "1";
+
+            var ns = $"LeetCode.P{int.Parse(number.Value):D4}.V{version}";
+            if (!namespaces.Add(ns))
+            {
+                Log.LogError($"Duplicate namespace '{ns}' for '{path}'.");
+                continue;
+            }
+
+            var target = Path.Combine(OutputDirectory, ns + ".cs");
+            var content = $"namespace {ns};\n#line 1 \"{path}\"\n{File.ReadAllText(path)}";
+            if (!File.Exists(target) || File.ReadAllText(target) != content)
+            {
+                File.WriteAllText(target, content);
+            }
+
+            generated.Add(new TaskItem(target));
+        }
+
+        Generated = generated.ToArray();
+      ]]></Code>
+    </Task>
+  </UsingTask>
+
+  <Target Name="WrapSolutions" BeforeTargets="CoreCompile">
+    <WrapSolutions Sources="@(SolutionSource)" OutputDirectory="$(WrappedSolutionsDirectory)">
+      <Output TaskParameter="Generated" ItemName="Compile" />
+    </WrapSolutions>
+  </Target>
+
+</Project>

@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/dotnet/">
+    <Project Path="dotnet/LeetCode.Solutions.Benchmarks/LeetCode.Solutions.Benchmarks.csproj" />
+    <Project Path="dotnet/LeetCode.Solutions.Tests/LeetCode.Solutions.Tests.csproj" />
+    <Project Path="dotnet/LeetCode.Solutions/LeetCode.Solutions.csproj" />
+  </Folder>
+</Solution>
