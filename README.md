@@ -8,6 +8,35 @@
 
 My solutions to several [LeetCode](https://leetcode.com/) problems, in C# and Java.
 
+## 2026 Retrospective
+
+These solutions were written between late 2023 and early 2024. In 2026 they are being revisited one problem at a time. The original files are kept exactly as they were submitted, and each problem gains:
+
+- A **Retrospective** section in its README: why it was solved that way at the time, a review against the [review rubric](#review-rubric), naming, benchmark results, and what a better solution looks like today.
+- A **2026 version** (`*.2026.cs`, `*.2026.java`), written with AI assistance. Like the originals, it can still be submitted to LeetCode as is.
+- **Tests** that run the same cases against every version.
+- **Benchmarks** that compare every version on identical inputs. They replace LeetCode's "Beats X%" percentile, which ranks a single run against other users at submission time and cannot be reproduced.
+
+| # | Problem | Pattern | Retrospective |
+| --- | --- | --- | --- |
+| 1207 | Unique Number of Occurrences | Counting with a hash map | [Read](Study%20Plan/LeetCode%2075/1207%20Unique%20Number%20of%20Occurrences/README.md#retrospective) |
+
+## Review rubric
+
+LeetCode only measures runtime and memory. Each retrospective also rates every version on how easy it would be to review, trust and maintain, using the same aspects:
+
+| Aspect | Question |
+| --- | --- |
+| Naming | Does each name say what the variable holds? |
+| Readability | Can a reviewer tell what the code does in a single read? |
+| Simplicity | Is every variable, branch and level of nesting necessary? |
+| Idiomatic API use | Does it use the language and its standard library as intended, instead of reimplementing them? |
+| Comments | Do comments explain why, instead of repeating the code or the API documentation? |
+| Correctness at a glance | Are edge cases (empty input, single element, bounds, overflow) visibly handled? |
+| Consistency | Does it follow the language's conventions for casing, formatting and braces? |
+
+Each aspect is rated Good, Fair or Poor, and every rating is justified in the review notes. Performance is then measured with benchmarks.
+
 ## How it works
 
 Every original file declares a top-level `Solution` class with no namespace or package, as LeetCode expects, so the files cannot be compiled together as they are. Before compiling, the build copies each one into a generated source folder and adds a namespace or package derived from the problem number and the file name:

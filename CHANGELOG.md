@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - xUnit v3 and JUnit 6 test projects that run every case against every version of a solution (#4)
 - BenchmarkDotNet and JMH benchmark projects that compare versions on identical inputs (#4)
 - GitHub Actions build workflow and Dependabot configuration (#4)
+- Review rubric for rating readability and maintainability alongside performance (#5)
+- 2026 retrospective for 1207. Unique Number of Occurrences, with C# and Java 2026 versions, tests and benchmarks (#5)
 
 ### Fixed
 
