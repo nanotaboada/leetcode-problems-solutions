@@ -15,6 +15,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Review rubric for rating readability and maintainability alongside performance (#5)
 - 2026 retrospective for 1207. Unique Number of Occurrences, with C# and Java 2026 versions, tests and benchmarks (#5)
 
+### Changed
+
+- Emojis in README headings, rubric aspects and retrospective ratings
+
 ### Fixed
 
 - Missing closing braces in the C# solution for 0121. Best Time to Buy and Sell Stock (#4)

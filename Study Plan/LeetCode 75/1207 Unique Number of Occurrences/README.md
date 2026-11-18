@@ -38,11 +38,11 @@ Find the number of occurrences of each element in the array using a hash map.
 
 Iterate through the hash map and check if there is a repeated value.
 
-## Retrospective
+## 🔁 Retrospective
 
-_Reviewed in November 2026. Original versions: C# V1 and V2 (December 2023), C# V3 and Java V3 (January 2024, C# V3 presized in February 2024). See the [review rubric](../../../README.md#review-rubric) for what each aspect means._
+_Reviewed in November 2026. Original versions: C# V1 and V2 (December 2023), C# V3 and Java V3 (January 2024, C# V3 presized in February 2024). See the [review rubric](../../../README.md#-review-rubric) for what each aspect means._
 
-### Then
+### 🕰️ Then
 
 The C# versions show a clear progression, and each step responds to the percentile LeetCode reported:
 
@@ -51,19 +51,19 @@ The C# versions show a clear progression, and each step responds to the percenti
 - **V3** replaces LINQ with an explicit `Dictionary` loop. Reported: "Beats 95%". A later commit presized the dictionary to `arr.Length`, which moved the memory percentile from 24% to 89% for a difference of 0.42 MB, measured on top of a process baseline of about 40 MB.
 - **Java V3** is the same algorithm as C# V3, and was already "Beats 98%".
 
-### Review
+### 🔍 Review
 
 Every version is O(n) time and O(n) space. None of the rewrites changed the algorithm, only constant factors and readability.
 
 | Aspect | V1 | V2 | V3 | 2026 |
 | --- | --- | --- | --- | --- |
-| Naming | Fair | Poor | Fair | Good |
-| Readability | Good | Poor | Fair | Good |
-| Simplicity | Good | Poor | Fair | Good |
-| Idiomatic API use | Fair | Fair | Fair | Good |
-| Comments | Fair | Poor | Fair | Good |
-| Correctness at a glance | Good | Fair | Good | Good |
-| Consistency | Fair | Good | Fair | Good |
+| Naming | 🟡 Fair | 🔴 Poor | 🟡 Fair | 🟢 Good |
+| Readability | 🟢 Good | 🔴 Poor | 🟡 Fair | 🟢 Good |
+| Simplicity | 🟢 Good | 🔴 Poor | 🟡 Fair | 🟢 Good |
+| Idiomatic API use | 🟡 Fair | 🟡 Fair | 🟡 Fair | 🟢 Good |
+| Comments | 🟡 Fair | 🔴 Poor | 🟡 Fair | 🟢 Good |
+| Correctness at a glance | 🟢 Good | 🟡 Fair | 🟢 Good | 🟢 Good |
+| Consistency | 🟡 Fair | 🟢 Good | 🟡 Fair | 🟢 Good |
 
 - **Readability and simplicity:** to see that V2 checks "every count appears once", a reviewer has to trace three chained projections and an anonymous type. V3 spends five lines and two lookups (`ContainsKey`, then the indexer) on what `CountBy` in C# or `merge` in Java express in one.
 - **Idiomatic API use:** `GroupBy(...).Select(group => group.Count())` builds a collection for every group only to count it. .NET 9 added `CountBy` for exactly this case.
@@ -72,7 +72,7 @@ Every version is O(n) time and O(n) space. None of the rewrites changed the algo
 - **Consistency:** `if(` without a space in V1 and V3, against the spacing used everywhere else.
 - **Presizing:** `new Dictionary<int, int>(arr.Length)` sizes the dictionary for the number of elements, but the number of distinct keys is bounded by the value range (2,001). Within LeetCode's limits (1,000 elements) this is harmless. At 100,000 elements it allocates 2.1 MB on the Large Object Heap and triggers Gen2 collections.
 
-### Naming
+### 🏷️ Naming
 
 | Version | Name | What it holds | Issue | Better |
 | --- | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ Every version is O(n) time and O(n) space. None of the rewrites changed the algo
 
 `element` for each value and the problem's own vocabulary were good choices. The issues are about precision, not English: a name should say what the variable holds, not what topic it relates to.
 
-### Results
+### 📊 Results
 
 Intel Core i7-9750H, macOS 15.7, .NET 10.0.12 (BenchmarkDotNet 0.15.8), Temurin 25.0.4.1 (JMH 1.37). `AllUnique`: value _k_ appears _k_ times, so every count is distinct and no version can stop early. `Random`: values drawn from the full range, so counts repeat almost immediately.
 
@@ -112,7 +112,7 @@ Java, mean time and allocated memory per call:
 - In Java, V3 was already the right solution. The 2026 version modernizes the syntax with a similar performance.
 - A first 2026 draft compared the sizes of two full collections instead of stopping early, and was twice as slow as V3 on random input. The benchmark caught it.
 
-### Takeaways
+### 🎓 Takeaways
 
 1. Chasing the percentile did find a real gain (V3 is twice as fast as V1), but it cost readability and introduced a presizing that backfires outside LeetCode's limits.
 2. The right standard library API removes the trade-off: `CountBy` is both the most readable and the fastest C# version.
